@@ -75,6 +75,7 @@ This version of the application supports the following operations. Each action h
 ### [viewTools](#viewtools)
 
 Use this action to display the list of all tools available in the system.
+
 *Inputs:* none
 *Returns:* **ToolCollection**
 *Type:* Safe
@@ -84,6 +85,7 @@ Use this action to display the list of all tools available in the system.
 ### [viewMembers](#viewmembers)
 
 Use this action to display all registered members in the system.
+
 *Inputs:* none
 *Returns:* **MemberCollection**
 *Type:* Safe
@@ -93,6 +95,7 @@ Use this action to display all registered members in the system.
 ### [viewSharings](#viewsharings)
 
 Use this action to display all borrowing records (open or closed).
+
 *Inputs:* none
 *Returns:* **SharingCollection**
 *Type:* Safe
@@ -102,6 +105,7 @@ Use this action to display all borrowing records (open or closed).
 ### [addTool](#addtool)
 
 Use this action to add a new tool record to the collection.
+
 *Inputs:* toolName, toolType, condition
 *Required:* toolName, toolType, condition
 *Returns:* **ToolItem**
@@ -112,6 +116,7 @@ Use this action to add a new tool record to the collection.
 ### [viewTool](#viewtool)
 
 Use this action to view details of a single tool.
+
 *Inputs:* toolId
 *Required:* toolId
 *Returns:* **ToolItem**
@@ -122,6 +127,7 @@ Use this action to view details of a single tool.
 ### [updateTool](#updatetool)
 
 Use this action to change the details of an existing tool (for example, update its condition).
+
 *Inputs:* toolId, condition
 *Required:* toolId
 *Returns:* **ToolItem**
@@ -132,6 +138,7 @@ Use this action to change the details of an existing tool (for example, update i
 ### [addMember](#addmember)
 
 Use this action to register a new member in the system.
+
 *Inputs:* memberName
 *Required:* memberName
 *Returns:* **MemberItem**
@@ -142,6 +149,7 @@ Use this action to register a new member in the system.
 ### [viewMember](#viewmember)
 
 Use this action to retrieve information about a specific member.
+
 *Inputs:* memberId
 *Required:* memberId
 *Returns:* **MemberItem**
@@ -152,6 +160,7 @@ Use this action to retrieve information about a specific member.
 ### [updateMember](#updatemember)
 
 Use this action to modify information for an existing member, such as changing their membership status.
+
 *Inputs:* memberId, membershipStatus
 *Required:* memberId
 *Returns:* **MemberItem**
@@ -162,6 +171,7 @@ Use this action to modify information for an existing member, such as changing t
 ### [suspendMember](#suspendmember)
 
 Use this action to suspend a member account (making them temporarily ineligible to borrow tools).
+
 *Inputs:* memberId
 *Required:* memberId
 *Returns:* **MemberItem**
@@ -172,6 +182,7 @@ Use this action to suspend a member account (making them temporarily ineligible 
 ### [activateMember](#activatemember)
 
 Use this action to reactivate a suspended member account.
+
 *Inputs:* memberId
 *Required:* memberId
 *Returns:* **MemberItem**
@@ -182,6 +193,7 @@ Use this action to reactivate a suspended member account.
 ### [createSharing](#createsharing)
 
 Use this action when a member borrows a tool from the shed. It creates a new sharing record and associates the tool with the borrowing member.
+
 *Inputs:* memberId, toolId, borrowDate, dueDate
 *Required:* memberId, toolId, borrowDate, dueDate
 *Returns:* **SharingItem**
@@ -193,6 +205,7 @@ Use this action when a member borrows a tool from the shed. It creates a new sha
 ### [viewSharing](#viewsharing)
 
 Use this action to retrieve a specific sharing record by its identifier.
+
 *Inputs:* sharingId
 *Required:* sharingId
 *Returns:* **SharingItem**
@@ -203,6 +216,7 @@ Use this action to retrieve a specific sharing record by its identifier.
 ### [closeSharing](#closesharing)
 
 Use this action when a member returns a borrowed tool, closing the transaction.
+
 *Inputs:* sharingId, returnDate
 *Required:* sharingId, returnDate
 *Returns:* **SharingItem**
