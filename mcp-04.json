@@ -1,0 +1,187 @@
+"tools": [
+  {
+    "name": "home",
+    "description": "Navigate to the API home document. ALPS id: goHome.",
+    "input_schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "response_schema": {
+      "type": "object",
+      "properties": {
+        "message": { "type": "string" },
+        "links": { "type": "object" }
+      }
+    }
+  },
+  {
+    "name": "listTasks",
+    "description": "Retrieve the full collection of tasks. ALPS id: goTaskList.",
+    "input_schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "response_schema": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "title": { "type": "string" },
+              "description": { "type": "string" },
+              "dueDate": { "type": "string", "format": "date" },
+              "status": { "type": "string" },
+              "priority": { "type": "integer" },
+              "assignedUser": { "type": "string" },
+              "_links": { "type": "object" }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "filterTasks",
+    "description": "Retrieve a filtered list of tasks using fields such as title, dueDate, status, priority, and assignedUser. ALPS id: goFilteredTasks.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "dueDate": { "type": "string", "format": "date" },
+        "status": { "type": "string" },
+        "priority": { "type": "integer" },
+        "assignedUser": { "type": "string" }
+      },
+      "required": []
+    },
+    "response_schema": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/taskItem" }
+        }
+      }
+    }
+  },
+  {
+    "name": "getTask",
+    "description": "Retrieve a single task by id. ALPS id: goTaskItem.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" }
+      },
+      "required": ["id"]
+    },
+    "response_schema": {
+      "$ref": "#/definitions/taskItem"
+    }
+  },
+  {
+    "name": "createTask",
+    "description": "Create a new task. ALPS id: doCreateTask.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "dueDate": { "type": "string", "format": "date" },
+        "status": { "type": "string" },
+        "priority": { "type": "integer" },
+        "assignedUser": { "type": "string" }
+      },
+      "required": ["id", "title", "status"]
+    },
+    "response_schema": {
+      "$ref": "#/definitions/taskItem"
+    }
+  },
+  {
+    "name": "editTask",
+    "description": "Edit an existing task. ALPS id: doEditTask.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "dueDate": { "type": "string", "format": "date" },
+        "status": { "type": "string" },
+        "priority": { "type": "integer" },
+        "assignedUser": { "type": "string" }
+      },
+      "required": ["id"]
+    },
+    "response_schema": {
+      "$ref": "#/definitions/taskItem"
+    }
+  },
+  {
+    "name": "updateTaskStatus",
+    "description": "Update the status of an existing task. ALPS id: doUpdateStatus.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "status"]
+    },
+    "response_schema": {
+      "$ref": "#/definitions/taskItem"
+    }
+  },
+  {
+    "name": "setTaskDueDate",
+    "description": "Set or update the due date for a task. ALPS id: doSetDueDate.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "dueDate": { "type": "string", "format": "date" }
+      },
+      "required": ["id", "dueDate"]
+    },
+    "response_schema": {
+      "$ref": "#/definitions/taskItem"
+    }
+  },
+  {
+    "name": "assignTaskUser",
+    "description": "Assign or reassign a user to a task. ALPS id: doAssignUser.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "assignedUser": { "type": "string" }
+      },
+      "required": ["id", "assignedUser"]
+    },
+    "response_schema": {
+      "$ref": "#/definitions/taskItem"
+    }
+  }
+],
+"definitions": {
+  "taskItem": {
+    "type": "object",
+    "properties": {
+      "id": { "type": "string" },
+      "title": { "type": "string" },
+      "description": { "type": "string" },
+      "dueDate": { "type": "string", "format": "date" },
+      "status": { "type": "string" },
+      "priority": { "type": "integer" },
+      "assignedUser": { "type": "string" },
+      "_links": { "type": "object" }
+    }
+  }
+}
+

@@ -1,0 +1,153 @@
+[
+  {
+    "id": "fb4a2427-2cff-41b6-a61b-e96bccacfa0e",
+    "title": "Initial Task",
+    "description": "This is a sample task",
+    "dueDate": "2025-06-01",
+    "status": "active",
+    "priority": 3,
+    "assignedUser": "alice",
+    "_links": {
+      "self": {
+        "href": "/tasks/fb4a2427-2cff-41b6-a61b-e96bccacfa0e",
+        "method": "GET",
+        "description": "Retrieve the current details for this task."
+      },
+      "edit": {
+        "href": "/tasks/fb4a2427-2cff-41b6-a61b-e96bccacfa0e/edit",
+        "method": "POST",
+        "args": [],
+        "description": "Update one or more attributes of this task."
+      },
+      "updateStatus": {
+        "href": "/tasks/fb4a2427-2cff-41b6-a61b-e96bccacfa0e/status",
+        "method": "PUT",
+        "args": [
+          "id",
+          "status"
+        ],
+        "description": "Change the status of this task."
+      },
+      "assignUser": {
+        "href": "/tasks/fb4a2427-2cff-41b6-a61b-e96bccacfa0e/assignee",
+        "method": "PUT",
+        "args": [
+          "id",
+          "assignedUser"
+        ],
+        "description": "Assign this task to a specific user."
+      },
+      "setDueDate": {
+        "href": "/tasks/fb4a2427-2cff-41b6-a61b-e96bccacfa0e/due-date",
+        "method": "PUT",
+        "args": [
+          "id",
+          "dueDate"
+        ],
+        "description": "Update the due date of this task."
+      },
+      "goHome": {
+        "href": "/",
+        "method": "GET",
+        "description": "Return to the API home document."
+      },
+      "goTaskList": {
+        "href": "/tasks",
+        "method": "GET",
+        "description": "Retrieve the full list of tasks."
+      },
+      "goFilteredTasks": {
+        "href": "/tasks?status=&priority=&assignedUser=",
+        "method": "GET",
+        "args": [
+          "title",
+          "dueDate",
+          "status",
+          "priority",
+          "assignedUser"
+        ],
+        "description": "Retrieve tasks that match the supplied filter fields."
+      }
+    }
+  },
+  {
+    "id": "5a24cd6d-2d0a-4378-ba1f-d930d94e2a0a",
+    "title": "Second Task",
+    "description": "Another example task",
+    "dueDate": "2025-06-15",
+    "status": "completed",
+    "priority": 5,
+    "assignedUser": "bob",
+    "_links": {
+      "self": {
+        "href": "/tasks/5a24cd6d-2d0a-4378-ba1f-d930d94e2a0a",
+        "method": "GET",
+        "description": "Retrieve the current details for this task."
+      },
+      "edit": {
+        "href": "/tasks/5a24cd6d-2d0a-4378-ba1f-d930d94e2a0a/edit",
+        "method": "POST",
+        "args": [
+          "id",
+          "title",
+          "description",
+          "dueDate",
+          "status",
+          "priority",
+          "assignedUser"
+        ],
+        "description": "Update one or more attributes of this task."
+      },
+      "updateStatus": {
+        "href": "/tasks/5a24cd6d-2d0a-4378-ba1f-d930d94e2a0a/status",
+        "method": "PUT",
+        "args": [
+          "id",
+          "status"
+        ],
+        "description": "Change the status of this task."
+      },
+      "assignUser": {
+        "href": "/tasks/5a24cd6d-2d0a-4378-ba1f-d930d94e2a0a/assignee",
+        "method": "PUT",
+        "args": [
+          "id",
+          "assignedUser"
+        ],
+        "description": "Assign this task to a specific user."
+      },
+      "setDueDate": {
+        "href": "/tasks/5a24cd6d-2d0a-4378-ba1f-d930d94e2a0a/due-date",
+        "method": "PUT",
+        "args": [
+          "id",
+          "dueDate"
+        ],
+        "description": "Update the due date of this task."
+      },
+      "goHome": {
+        "href": "/",
+        "method": "GET",
+        "description": "Return to the API home document."
+      },
+      "goTaskList": {
+        "href": "/tasks",
+        "method": "GET",
+        "description": "Retrieve the full list of tasks."
+      },
+      "goFilteredTasks": {
+        "href": "/tasks?status=&priority=&assignedUser=",
+        "method": "GET",
+        "args": [
+          "title",
+          "dueDate",
+          "status",
+          "priority",
+          "assignedUser"
+        ],
+        "description": "Retrieve tasks that match the supplied filter fields."
+      }
+    }
+  }
+]
+

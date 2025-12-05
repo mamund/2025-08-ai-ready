@@ -1,0 +1,61 @@
+{
+  "name": "Task Management MCP Server",
+  "version": "1.0.0",
+  "description": "Expose task management capabilities as MCP tools for autonomous agents. Based on the Task Management ALPS profile.",
+  "endpoints": [
+    {
+      "type": "http",
+      "url": "https://api.example.com/mcp",
+      "supports_streaming": false
+    }
+  ],
+  "configSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "home",
+      "description": "Navigate to the API home document. ALPS id: goHome."
+    },
+    {
+      "name": "listTasks",
+      "description": "Retrieve the full collection of tasks. ALPS id: goTaskList."
+    },
+    {
+      "name": "filterTasks",
+      "description": "Retrieve a filtered list of tasks using fields such as title, dueDate, status, priority, and assignedUser. ALPS id: goFilteredTasks."
+    },
+    {
+      "name": "getTask",
+      "description": "Retrieve a single task by id. ALPS id: goTaskItem."
+    },
+    {
+      "name": "createTask",
+      "description": "Create a new task using fields id, title, description, dueDate, status, priority, and assignedUser. ALPS id: doCreateTask."
+    },
+    {
+      "name": "editTask",
+      "description": "Edit an existing task, updating fields such as title, description, dueDate, status, priority, and assignedUser. ALPS id: doEditTask."
+    },
+    {
+      "name": "updateTaskStatus",
+      "description": "Update the status of an existing task. ALPS id: doUpdateStatus."
+    },
+    {
+      "name": "setTaskDueDate",
+      "description": "Set or update the due date for a task. ALPS id: doSetDueDate."
+    },
+    {
+      "name": "assignTaskUser",
+      "description": "Assign or reassign a user to a task. ALPS id: doAssignUser."
+    }
+  ]
+}
+

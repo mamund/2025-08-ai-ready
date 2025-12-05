@@ -1,0 +1,238 @@
+{
+  "name": "Task Management MCP Server",
+  "version": "1.0.0",
+  "description": "Expose task management capabilities as MCP tools for autonomous agents. Based on the Task Management ALPS profile.",
+  "endpoints": [
+    {
+      "type": "http",
+      "url": "https://api.example.com/mcp",
+      "supports_streaming": false
+    }
+  ],
+  "configSchema": {
+    "type": "object",
+    "properties": {},
+    "required": []
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "home",
+      "description": "Navigate to the API home document. ALPS id: goHome.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "listTasks",
+      "description": "Retrieve the full collection of tasks. ALPS id: goTaskList.",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "filterTasks",
+      "description": "Retrieve a filtered list of tasks using fields such as title, dueDate, status, priority, and assignedUser. ALPS id: goFilteredTasks.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Filter tasks whose title matches or contains this value."
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Filter tasks that are due on this date (YYYY-MM-DD)."
+          },
+          "status": {
+            "type": "string",
+            "description": "Filter tasks by status (for example active or completed)."
+          },
+          "priority": {
+            "type": "integer",
+            "description": "Filter tasks by numeric priority."
+          },
+          "assignedUser": {
+            "type": "string",
+            "description": "Filter tasks by assigned user identifier or name."
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "getTask",
+      "description": "Retrieve a single task by id. ALPS id: goTaskItem.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the task to retrieve."
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "createTask",
+      "description": "Create a new task using fields id, title, description, dueDate, status, priority, and assignedUser. ALPS id: doCreateTask.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier for the new task."
+          },
+          "title": {
+            "type": "string",
+            "description": "Short title for the task."
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the task."
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Due date for the task (YYYY-MM-DD)."
+          },
+          "status": {
+            "type": "string",
+            "description": "Initial status for the task (for example active)."
+          },
+          "priority": {
+            "type": "integer",
+            "description": "Priority for the task (higher means more important)."
+          },
+          "assignedUser": {
+            "type": "string",
+            "description": "User identifier or name assigned to the task."
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "status"
+        ]
+      }
+    },
+    {
+      "name": "editTask",
+      "description": "Edit an existing task, updating fields such as title, description, dueDate, status, priority, and assignedUser. ALPS id: doEditTask.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the task to edit."
+          },
+          "title": {
+            "type": "string",
+            "description": "Updated title for the task."
+          },
+          "description": {
+            "type": "string",
+            "description": "Updated description for the task."
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Updated due date for the task (YYYY-MM-DD)."
+          },
+          "status": {
+            "type": "string",
+            "description": "Updated status for the task."
+          },
+          "priority": {
+            "type": "integer",
+            "description": "Updated numeric priority for the task."
+          },
+          "assignedUser": {
+            "type": "string",
+            "description": "Updated user identifier or name assigned to the task."
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "updateTaskStatus",
+      "description": "Update the status of an existing task. ALPS id: doUpdateStatus.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the task to update."
+          },
+          "status": {
+            "type": "string",
+            "description": "New status value for the task."
+          }
+        },
+        "required": [
+          "id",
+          "status"
+        ]
+      }
+    },
+    {
+      "name": "setTaskDueDate",
+      "description": "Set or update the due date for a task. ALPS id: doSetDueDate.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the task to update."
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date",
+            "description": "New due date for the task (YYYY-MM-DD)."
+          }
+        },
+        "required": [
+          "id",
+          "dueDate"
+        ]
+      }
+    },
+    {
+      "name": "assignTaskUser",
+      "description": "Assign or reassign a user to a task. ALPS id: doAssignUser.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier of the task to update."
+          },
+          "assignedUser": {
+            "type": "string",
+            "description": "User identifier or name to assign to the task."
+          }
+        },
+        "required": [
+          "id",
+          "assignedUser"
+        ]
+      }
+    }
+  ]
+}
+
